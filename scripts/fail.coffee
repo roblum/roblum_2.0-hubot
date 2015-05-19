@@ -1,18 +1,4 @@
-Package Control Messages
-========================
-
-Minify:
-------
-
-  Version 1.1.6
-  -------------
-
-  * New feature: Minify settings can be overridden from Project settings
-      This allows the use of per project based Minify settings!
-  * Bug fix: When `auto_minify_on_save` was set to true, the minification
-      process was running in the foreground instead in a separate thread in ST3
-
-      # No Fucks Given
+# No Fucks Given
 #
 # no fuck - display a not a fuck was given meme
 #
