@@ -1,3 +1,19 @@
+# Description:
+#   A meme generator for people of Offerpop
+#
+# Dependencies:
+#   None
+#
+# Configuration:
+#
+# Commands:
+#   hubot meme me <last name> <caption> - generates a meme with the last name of that employee and caption
+#
+# Notes:
+#
+# Author:
+#   roblum
+
 module.exports = (robot) ->
 
     robot.hear /meme me (.*)/i, (msg) ->
