@@ -18,7 +18,7 @@ function createImage(caption, image, res) {
     imageMagick(appRoot + originalImage)
         .fill("white")
         .stroke('black', [1])
-        .fontSize(35)
+        .fontSize(40)
         .drawText(0, 100, caption, 'South')
         .stream(function(err, stdout, stderr) {
             if (err) {
