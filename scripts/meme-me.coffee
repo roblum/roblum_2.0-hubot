@@ -17,7 +17,6 @@
 module.exports = (robot) ->
 
     robot.hear /meme me (.*)/i, (msg) ->
-        console.log(msg)
         query = msg.match[1]
 
         params =
