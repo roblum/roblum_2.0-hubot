@@ -13,7 +13,7 @@ function filterRequest(req, res) {
 }
 
 function createImage(caption, image, res) {
-    var originalImage   = '/images/' + image + '.jpg';
+    var originalImage   = '/images/offerpop/' + image + '.jpg';
 
     imageMagick(appRoot + originalImage)
         .fill("white")
