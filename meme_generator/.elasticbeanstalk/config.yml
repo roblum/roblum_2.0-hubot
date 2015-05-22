@@ -1,0 +1,13 @@
+branch-defaults:
+  default:
+    environment: proServEcard-env
+global:
+  application_name: pro-serv-ecard
+  default_ec2_keyname: lum_key_pair
+  default_platform: 64bit Amazon Linux 2014.09 v1.2.1 running Node.js
+  default_region: us-west-2
+  profile: eb-cli
+  sc: null
+packages:
+  yum:
+    ImageMagick: []
