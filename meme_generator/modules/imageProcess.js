@@ -1,3 +1,4 @@
+var fs              = require('fs');
 var gm              = require('gm');
 var imageMagick     = gm.subClass({ imageMagick: true });
 var appRoot         = require('app-root-path').path;
@@ -8,14 +9,24 @@ function filterRequest(req, res) {
     req             = req.body;
     var caption     = decodeURIComponent(req['caption']);
     var image       = req['person'];
-    console.log(caption, image);
+
     createImage(caption, image, res);
 }
 
 function createImage(caption, image, res) {
     var originalImage   = '/images/offerpop/' + image + '.jpg';
+    var imagePath       = appRoot + originalImage;
 
-    imageMagick(appRoot + originalImage)
+    if (fs.existsSync(imagePath)) {
+        generateImage(caption, image, imagePath, res);
+    } else {
+        res.send('Sorry no image found for ' + image);
+    }
+
+}
+
+function generateImage(caption, image, imagePath, res) {
+    imageMagick(imagePath)
         .fill("white")
         .stroke('black', [1])
         .fontSize(40)
@@ -24,7 +35,7 @@ function createImage(caption, image, res) {
             if (err) {
                 res.send('Unexpected error: Stream err');
             } else if (stdout) {
-                sendToS3(err, stdout, stderr, originalImage, res);
+                sendToS3(err, stdout, stderr, imagePath, res);
             }
         });
 }

@@ -16,7 +16,7 @@ AWS.config.update({
 var s3 = new AWS.S3();
 
 
-function sendToS3(err, stdout, stderr, originalImage, client_response) {
+function sendToS3(err, stdout, stderr, imagePath, client_response) {
     var imageName       = shortId.generate();
     var buff            = new Buffer('');
 
@@ -32,12 +32,12 @@ function sendToS3(err, stdout, stderr, originalImage, client_response) {
                 Bucket      : S3_bucket,
                 Key         : linkPath,
                 Body        : buff,
-                ContentType : mime.lookup(originalImage)
+                ContentType : mime.lookup(imagePath)
         };
 
         s3.putObject(data, function(err, res) { // Folder to store linkable images
             if (err) {
-                console.log('There was an error: ' + err);
+                client_response.send('There was an error: ' + err);
             } else {
                 client_response.send({
                     link: BASE_URL + linkPath,
