@@ -32,4 +32,7 @@ module.exports = (robot) ->
                 else
                     results = JSON.parse(body)
 
-                    msg.send results.link
+                    if (results.link)
+                        msg.send results.link
+                    else
+                        msg.send results
