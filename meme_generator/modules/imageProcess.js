@@ -20,7 +20,9 @@ function createImage(caption, image, res) {
     if (fs.existsSync(imagePath)) {
         generateImage(caption, image, imagePath, res);
     } else {
-        res.send('Sorry no image found for ' + image);
+        res.send({
+            msg: 'Sorry no image found for ' + image
+        });
     }
 
 }

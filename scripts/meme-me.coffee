@@ -35,4 +35,4 @@ module.exports = (robot) ->
                     if (results.link)
                         msg.send results.link
                     else
-                        msg.send results
+                        msg.send results.msg

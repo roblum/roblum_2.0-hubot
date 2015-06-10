@@ -3,3 +3,4 @@ node_modules
 .hubot_history
 meme_generator/images/offerpop/*.*
 **/*.zip
+**/.env
